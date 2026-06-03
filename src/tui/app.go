@@ -11,7 +11,11 @@ type AppModel struct {
 }
 
 func NewAppModel() AppModel {
-	return AppModel{}
+	firstScreen := WelcomeScreen{}
+
+	return AppModel{
+		stack: NewSceneStack(firstScreen),
+	}
 }
 
 func (m AppModel) Init() tea.Cmd {
@@ -27,7 +31,7 @@ func (m AppModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.height = msg.Height
 	case tea.KeyMsg:
 		switch msg.String() {
-		case "crtl+c":
+		case "ctrl+c":
 			return m, tea.Quit
 		}
 	}
