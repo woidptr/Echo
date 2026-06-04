@@ -1,0 +1,7 @@
+services:
+  echo-tui:
+    image: ghcr.io/woidptr/echo:latest
+    container_name: echo-tui
+    restart: unless-stopped
+    ports:
+      - "22:2323"
