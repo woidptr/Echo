@@ -5,3 +5,5 @@ services:
     restart: unless-stopped
     ports:
       - "22:2323"
+    volumes:
+      - ./data:/data

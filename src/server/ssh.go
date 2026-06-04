@@ -20,7 +20,7 @@ func teaHandler(s ssh.Session) (tea.Model, []tea.ProgramOption) {
 func Start(port string) error {
 	s, err := wish.NewServer(
 		wish.WithAddress("0.0.0.0:"+port),
-		wish.WithHostKeyPath(".ssh/term_info_ed25519"),
+		wish.WithHostKeyPath("/data/term_info_ed25519"),
 		wish.WithMiddleware(
 			bubbletea.Middleware(teaHandler),
 			logging.Middleware(),
